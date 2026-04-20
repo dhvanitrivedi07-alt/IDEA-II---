@@ -1,0 +1,150 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable */
+
+@layer base {
+  :root {
+    /* Enhanced color palette with better contrast and modern tones */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.6%;
+    --card: 250 19% 98%;
+    --card-foreground: 0 0% 3.6%;
+    --popover: 250 19% 98%;
+    --popover-foreground: 0 0% 3.6%;
+    --muted: 240 5.3% 94.9%;
+    --muted-foreground: 240 4.8% 45.9%;
+    --accent: 240 5.9% 10%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+}
+
+/* stylelint-disable at-rule-no-unknown */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+/* stylelint-enable */
+
+/* Enhanced Component Layer */
+/* stylelint-disable at-rule-no-unknown */
+@layer components {
+  /* Modern Card with subtle shadows and hover effects */
+  .card {
+    @apply bg-card text-card-foreground rounded-[--radius] border shadow-sm;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card:hover {
+    @apply shadow-md ring-1 ring-ring/10 transform hover:-translate-y-0.5;
+  }
+
+  /* Enhanced Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-[--radius] font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-input h-10 px-4 py-2;
+  }
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2;
+  }
+
+  /* Modern Input Fields */
+  .input {
+    @apply flex h-10 w-full rounded-[--radius] border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Enhanced Typography */
+  .heading {
+    @apply font-bold tracking-tight;
+  }
+  .h1 { @apply text-3xl md:text-4xl; }
+  .h2 { @apply text-2xl md:text-3xl; }
+  .h3 { @apply text-xl md:text-2xl; }
+
+  /* Modern Badge */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    @apply bg-white/80 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-black/20;
+  }
+
+  /* Modern Shadow Utilities */
+  .shadow-modern {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  .shadow-glow {
+    box-shadow: 0 0 0 1px hsl(var(--ring)), 0 0 0 4px hsl(var(--ring)/0.1);
+  }
+}
+/* stylelint-enable */
+
+/* Utility Classes for Enhanced Animations */
+@layer utilities {
+  .animate-gentle-float {
+    animation: gentleFloat 3s ease-in-out infinite;
+  }
+  
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--foreground)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
