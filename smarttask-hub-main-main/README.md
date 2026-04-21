@@ -30,9 +30,6 @@ This project is built using modern frontend technologies:
 
 You can edit and run this project in multiple ways.
 
-### 🔹 Using Lovable
-- Open the project on Lovable:
-  https://lovable.dev/projects/4f6dbc01-2413-41ec-b8f8-91ae5eda7a73
 - Make changes using prompts
 - Changes are automatically committed to this repository
 
